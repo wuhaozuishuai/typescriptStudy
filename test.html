@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+
+<script>
+    var settings = {
+        "url": "http://127.0.0.1:4523/m1/2177857-0-default/pet",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "User-Agent": "Apifox/1.0.0 (https://www.apifox.cn)"
+        },
+        "data": {
+            "name": "Hello Kitty",
+            "status": "sold"
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+    var addCookie = function (name, value, time) {
+        var now=new Date();
+        //设置时间
+        now.setMinutes(now.getMinutes()+time)
+        //设置cookie的名称、值、失效时间
+        document.cookie = name + "=" + value + ";expires="+ now.toGMTString();
+    }
+    addCookie('hh',123,60)
+</script>
+</body>
+</html>
